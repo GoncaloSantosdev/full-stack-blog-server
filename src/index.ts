@@ -1,6 +1,6 @@
-import express, { Request, Response } from "express";
-dotenv.config();
 import dotenv from "dotenv";
+dotenv.config();
+import express, { Request, Response } from "express";
 // Middlewares
 import cors from "cors";
 // Database
