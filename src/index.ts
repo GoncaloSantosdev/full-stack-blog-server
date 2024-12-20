@@ -5,6 +5,8 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 // Database
 import { connectDB } from "./config/database";
+// Routes
+import webhookRoutes from "./routes/webhookRoutes";
 
 // Create Express app
 const app = express();
@@ -12,7 +14,12 @@ connectDB();
 
 // Middleware
 app.use(cors());
+
+// Webhook
+app.use("/api/webhooks", webhookRoutes);
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", (req: Request, res: Response) => {
