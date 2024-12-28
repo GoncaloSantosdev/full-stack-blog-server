@@ -5,6 +5,8 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 // Database connection
 import connectDB from "./config/db";
+// Routes
+import postRoutes from "./routes/postRoutes";
 
 // Initialize express
 const app: Express = express();
@@ -21,10 +23,11 @@ app.use(
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-// Test route
+// Routes
 app.get("/api", (req: Request, res: Response) => {
-  res.send("Blog API is running");
+  res.send("Welcome to the full-stack blog API");
 });
+app.use("/api/posts", postRoutes);
 
 // Connect to database
 connectDB();
