@@ -21,8 +21,8 @@ app.use(
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-// Basic route
-app.get("/", (req: Request, res: Response) => {
+// Test route
+app.get("/api", (req: Request, res: Response) => {
   res.send("Blog API is running");
 });
 
